@@ -4,10 +4,54 @@
   <meta charset="UTF-8">
   <title>Rdm mafia store</title>
   <style>
-    body { font-family: Arial; background: #f6f6f6; margin: 0; padding: 0; }
-    h1 { text-align: center; padding: 20px; }
-    .product { background: white; padding: 20px; margin: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .btn { display: inline-block; background: #5865F2; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px; }
+  body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background: linear-gradient(135deg, #6a00ff, #0099ff); /* fiolet -> niebieski */
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.product {
+    background: rgba(0, 0, 0, 0.5); /* półprzezroczysta karta */
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 132, 255, 0.4);
+    backdrop-filter: blur(5px);
+    color: white;
+    text-align: center;
+}
+
+.product img {
+    width: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    background: #0a6cff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #1d7fff;
+    box-shadow: 0 0 10px #1d7fff;
+}
+
   </style>
 </head>
 <body>
@@ -17,6 +61,7 @@
 <!-- PRODUKT 1 -->
 <div class="product">
   <h2>Keyser</h2>
+  <img src="keyser.jpg" width="200">
   <p>Dzień: 30 zł</p>
   <p>Tydzień: 50 zł</p>
   <p>Miesiąc: 70 zł</p>
@@ -27,6 +72,7 @@
 <!-- PRODUKT 2 -->
 <div class="product">
   <h2>Red Engine</h2>
+   <img src="redengine.jpg" width="200">
   <p>7 dni — 50 zł</p>
   <p>30 dni — 90 zł</p>
   <p>Na zawsze — 220 zł</p>
@@ -36,6 +82,7 @@
 <!-- PRODUKT 3 -->
 <div class="product">
   <h2>Red Engine Spoofer</h2>
+  <img src="spoofer.jpg" width="200">
   <p>7 dni — 40 zł</p>
   <p>30 dni — 70 zł</p>
   <p>Na zawsze — 180 zł</p>
@@ -44,7 +91,8 @@
 
 <!-- PRODUKT 4 -->
 <div class="product">
-  <h2>Phaze Menu</h2>
+  <h2>Phaze Menu</h2> 
+  <img src="phaze.jpg" width="200">
   <p>7 dni — 50 zł</p>
   <p>30 dni — 90 zł</p>
   <p>Na zawsze — 220 zł</p>
