@@ -2,6 +2,10 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
+
+<!-- 🔥 TUTAJ WKLEISZ META TAG OD GOOGLE SEARCH CONSOLE jeśli go dostaniesz -->
+<!-- <meta name="google-site-verification" content="TWÓJ_KOD_GOOGLE"> -->
+
 <title>RDM Mafia Store</title>
 
 <style>
@@ -143,6 +147,7 @@ nav a:hover {
 <nav>
     <a onclick="openTab('home')">HOME</a>
     <a onclick="openTab('fivem')">FIVEM</a>
+    <a onclick="openTab('discord')">DISCORD</a> 
 </nav>
 
 <!-- HOME -->
@@ -227,6 +232,29 @@ nav a:hover {
 </div>
 
 
+
+
+<!-- DISCORD PRODUKTY -->
+<div id="discord" class="section">
+
+    <h1>Discord — Produkty</h1>
+
+    <!-- Nitro produkt -->
+    <div class="hack-box" onclick="openProduct(
+        'Discord Nitro 3 miesiące',
+        'nitro.jpg',
+        ['30 zł'],
+        'Klucz działa tylko dla osób, które nigdy nie posiadały Nitro. Nawet za Discord Orbs!'
+    )">
+        <h2>Discord Nitro 3 miesiące — 30 zł</h2>
+        <img src="nitro.jpg">
+    </div>
+
+</div>
+
+
+
+
 <!-- POPUP PRODUKTU -->
 <div id="popup">
     <div class="popup-inner">
@@ -245,6 +273,8 @@ nav a:hover {
 </div>
 
 
+
+
 <!-- KOSZYK -->
 <div id="cart">
     <h2>Koszyk</h2>
@@ -255,6 +285,8 @@ nav a:hover {
 
     <a class="btn" href="https://discord.gg/9ZtXWfDdHV" target="_blank">JOIN DISCORD</a>
 </div>
+
+
 
 
 <script>
