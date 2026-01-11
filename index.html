@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 
-
 <title>RDM Mafia Store</title>
 
 <style>
@@ -136,6 +135,7 @@ nav a:hover {
     border-radius: 12px;
     background: rgba(0,0,0,0.6);
     text-align: center;
+    white-space: pre-line;
 }
 </style>
 </head>
@@ -145,24 +145,16 @@ nav a:hover {
 <nav>
     <a onclick="openTab('home')">HOME</a>
     <a onclick="openTab('fivem')">FIVEM</a>
-    <a onclick="openTab('discord')">DISCORD</a> 
+    <a onclick="openTab('discord')">DISCORD</a>
 </nav>
 
 <!-- HOME -->
 <div id="home" class="section active">
     <h1>RDM MAFIA STORE</h1>
 
-    <div class="hack-box">
-        <h2>100% Zaufanie klientów</h2>
-    </div>
-
-    <div class="hack-box">
-        <h2>Bezpieczeństwo gwarantowane</h2>
-    </div>
-
-    <div class="hack-box">
-        <h2>Zwrot pieniędzy w 24h</h2>
-    </div>
+    <div class="hack-box"><h2>100% Zaufanie klientów</h2></div>
+    <div class="hack-box"><h2>Bezpieczeństwo gwarantowane</h2></div>
+    <div class="hack-box"><h2>Zwrot pieniędzy w 24h</h2></div>
 
     <div class="btn" onclick="openTab('fivem')">KUP TERAZ</div>
 </div>
@@ -172,7 +164,6 @@ nav a:hover {
 
     <h1>Produkty FiveM</h1>
 
-    <!-- FiveM Ready -->
     <div class="hack-box" onclick="openProduct(
         'FiveM Ready',
         'fivem.jpg',
@@ -183,29 +174,26 @@ nav a:hover {
         <img src="fivem.jpg">
     </div>
 
-    <!-- Keyser -->
     <div class="hack-box" onclick="openProduct(
         'Keyser', 
         'keyser.jpg',
         ['Dzień — 30 zł','Tydzień — 50 zł','Miesiąc — 70 zł','Na zawsze — 160 zł'],
-        'Keyser — stabilne narzędzie dla FiveM. Aktualizacje, prostota, niezawodność.'
+        'Keyser — stabilne narzędzie dla FiveM.'
     )">
         <h2>Keyser</h2>
         <img src="keyser.jpg">
     </div>
 
-    <!-- Red Engine -->
     <div class="hack-box" onclick="openProduct(
         'Red Engine',
         'redengine.jpg',
         ['7 dni — 50 zł','30 dni — 90 zł','Na zawsze — 220 zł'],
-        'RedEngine – zaawansowany manager rozszerzeń FiveM. Stabilny i nowoczesny.'
+        'RedEngine – zaawansowany manager rozszerzeń FiveM.'
     )">
         <h2>Red Engine</h2>
         <img src="redengine.jpg">
     </div>
 
-    <!-- Spoofer -->
     <div class="hack-box" onclick="openProduct(
         'Red Engine Spoofer',
         'redengine2.jpg',
@@ -216,12 +204,11 @@ nav a:hover {
         <img src="redengine2.jpg">
     </div>
 
-    <!-- Phaze -->
     <div class="hack-box" onclick="openProduct(
         'Phaze Menu',
         'phaze.jpg',
         ['7 dni — 50 zł','30 dni — 90 zł','Na zawsze — 220 zł'],
-        'Phaze — stabilne narzędzie kompatybilne z RedEngine z personalizacją.'
+        'Phaze — stabilne narzędzie kompatybilne z RedEngine.'
     )">
         <h2>Phaze Menu</h2>
         <img src="phaze.jpg">
@@ -230,19 +217,16 @@ nav a:hover {
 </div>
 
 
-
-
 <!-- DISCORD PRODUKTY -->
 <div id="discord" class="section">
 
     <h1>Discord — Produkty</h1>
 
-    <!-- Nitro produkt -->
     <div class="hack-box" onclick="openProduct(
         'Discord Nitro 3 miesiące',
         'nitro.jpg',
         ['30 zł'],
-        'Klucz działa tylko dla osób, które nigdy nie posiadały Nitro. Nawet za Discord Orbs!'
+        'Klucz działa tylko dla osób, które nigy nie posiadały Nitro. Nawet za Discord Orbs!'
     )">
         <h2>Discord Nitro 3 miesiące — 30 zł</h2>
         <img src="nitro.jpg">
@@ -251,15 +235,12 @@ nav a:hover {
 </div>
 
 
-
-
 <!-- POPUP PRODUKTU -->
 <div id="popup">
     <div class="popup-inner">
 
         <h2 id="pTitle"></h2>
         <img id="pImg" style="width:180px; border-radius:10px; margin:10px;">
-
         <p id="pDesc"></p>
 
         <select id="pPrice" style="padding:10px; width:80%; border-radius:8px;"></select>
@@ -269,8 +250,6 @@ nav a:hover {
 
     </div>
 </div>
-
-
 
 
 <!-- KOSZYK -->
@@ -285,8 +264,6 @@ nav a:hover {
 </div>
 
 
-
-
 <script>
 
 function openTab(name){
@@ -294,9 +271,9 @@ function openTab(name){
     document.getElementById(name).classList.add('active');
 }
 
-/* popup */
 let selectedProduct = "";
 let selectedPrice = "";
+let cartItems = [];
 
 function openProduct(title, image, prices, desc) {
 
@@ -323,19 +300,32 @@ function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
 
-/* koszyk */
 function addToCart() {
 
     selectedPrice = document.getElementById("pPrice").value;
 
+    cartItems.push({
+        name: selectedProduct,
+        price: selectedPrice
+    });
+
     document.getElementById("popup").style.display = "none";
 
-    document.getElementById("cartItem").innerText =
-        selectedProduct + " — " + selectedPrice;
+    updateCartDisplay();
 
     document.getElementById("cart").style.display = "block";
-
     document.getElementById("cart").scrollIntoView({ behavior: 'smooth' });
+}
+
+function updateCartDisplay() {
+
+    let text = "";
+
+    cartItems.forEach((item, i) => {
+        text += (i + 1) + ". " + item.name + " — " + item.price + "\n";
+    });
+
+    document.getElementById("cartItem").innerText = text;
 }
 
 </script>
