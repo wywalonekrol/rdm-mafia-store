@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
 <meta charset="UTF-8">
 <title>RDM Mafia Store</title>
@@ -8,82 +8,113 @@
 body {
     margin: 0;
     font-family: Arial;
-    background: linear-gradient(135deg, #09001a, #270055);
-    color: white;
+    background: #000;
+    color: #00ff66;
 }
 
-/* Nagłówek */
-h1 {
-    text-align: center;
-    padding: 20px;
+/* top navbar */
+nav {
+    width: 100%;
+    background: #001a00;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 2px solid #00ff66;
 }
 
-/* Karty produktów */
-.product {
-    width: 90%;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 12px;
-    background: rgba(0,0,0,0.55);
-    box-shadow: 0 0 15px #5900ff80;
+nav a {
+    color: #00ff66;
+    font-size: 22px;
     cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
     transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ff66;
+}
+
+/* SEKCJE */
+.section {
+    display: none;
+    padding: 30px;
     text-align: center;
 }
-
-.product:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 25px #8600ffbb;
+.active {
+    display: block;
 }
 
-.product img {
-    width: 200px;
+/* hacking boxes */
+.hack-box {
+    width: 85%;
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 20px;
+    border: 2px solid #00ff66;
     border-radius: 10px;
+    background: rgba(0, 20, 0, 0.7);
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-/* POPUP OKNO PRODUKTU */
+.hack-box:hover {
+    box-shadow: 0 0 20px #00ff66;
+    transform: scale(1.02);
+}
+
+.hack-box img {
+    width: 200px;
+    border-radius: 8px;
+}
+
+/* popup okna */
 #popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.9);
     display: none;
     justify-content: center;
     align-items: center;
 }
 
-.popup-box {
+.popup-inner {
     width: 90%;
     max-width: 450px;
-    background: #120022;
     padding: 25px;
-    border-radius: 15px;
+    border-radius: 12px;
+    background: #000;
+    color: #00ff66;
+    border: 2px solid #00ff66;
     text-align: center;
-    box-shadow: 0 0 20px #8a00ff;
 }
 
-/* Przycisk */
+/* buttony */
 .btn {
     display: block;
+    width: 80%;
+    margin: 15px auto;
     padding: 12px;
-    background: #4a00ff;
-    color: white;
-    text-decoration: none;
+    font-size: 18px;
     font-weight: bold;
+    color: black;
+    background: #00ff66;
     border-radius: 8px;
-    margin-top: 15px;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-/* glitch effect */
 .btn:hover {
-    background: #7600ff;
+    background: #00cc55;
     animation: glitch 0.3s infinite;
 }
 
+/* glitch animacja */
 @keyframes glitch {
     0% { transform: translate(1px,1px); }
     25% { transform: translate(-2px,1px); }
@@ -92,100 +123,141 @@ h1 {
     100% { transform: translate(1px,2px); }
 }
 
-/* KOSZYK */
+/* koszyk */
 #cart {
     display: none;
     width: 90%;
-    max-width: 500px;
-    margin: 20px auto;
+    max-width: 550px;
+    margin: 30px auto;
     padding: 20px;
+    border: 2px solid #00ff66;
     border-radius: 12px;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.6);
     text-align: center;
-    box-shadow: 0 0 20px #5a00ff;
 }
-
 </style>
 </head>
 <body>
 
-<h1>RDM MAFIA STORE</h1>
+<!-- NAVBAR -->
+<nav>
+    <a onclick="openTab('home')">HOME</a>
+    <a onclick="openTab('fivem')">FIVEM</a>
+</nav>
 
-<!-- Produkty -->
-<div class="product" onclick="openProduct('Keyser', 'keyser.jpg', [
-'Dzień — 30 zł',
-'Tydzień — 50 zł',
-'Miesiąc — 70 zł',
-'Na zawsze — 160 zł'
-], 'Keyser — stabilne i dopracowane narzędzie dla użytkowników FiveM. Oferuje stałe aktualizacje, intuicyjny interfejs i wysoką niezawodność działania.')">
-    <h2>Keyser</h2>
-    <img src="keyser.jpg">
+<!-- HOME -->
+<div id="home" class="section active">
+    <h1>RDM MAFIA STORE</h1>
+
+    <div class="hack-box">
+        <h2>100% Zaufanie klientów</h2>
+    </div>
+
+    <div class="hack-box">
+        <h2>Bezpieczeństwo gwarantowane</h2>
+    </div>
+
+    <div class="hack-box">
+        <h2>Zwrot pieniędzy w 24h</h2>
+    </div>
 </div>
 
-<div class="product" onclick="openProduct('Red Engine', 'redengine.jpg', [
-'7 dni — 50 zł',
-'30 dni — 90 zł',
-'Na zawsze — 220 zł'
-], 'RedEngine – zaawansowany menedżer rozszerzeń dla FiveM. Stabilny, szybki, nowoczesny.')">
-    <h2>Red Engine</h2>
-    <img src="redengine.jpg">
+<!-- FIVEM PRODUKTY -->
+<div id="fivem" class="section">
+
+    <h1>Produkty FiveM</h1>
+
+    <!-- Keyser -->
+    <div class="hack-box" onclick="openProduct(
+        'Keyser', 
+        'keyser.jpg',
+        ['Dzień — 30 zł','Tydzień — 50 zł','Miesiąc — 70 zł','Na zawsze — 160 zł'],
+        'Keyser — stabilne narzędzie dla FiveM. Aktualizacje, prostota, niezawodność.'
+    )">
+        <h2>Keyser</h2>
+        <img src="keyser.jpg">
+    </div>
+
+    <!-- Red Engine -->
+    <div class="hack-box" onclick="openProduct(
+        'Red Engine',
+        'redengine.jpg',
+        ['7 dni — 50 zł','30 dni — 90 zł','Na zawsze — 220 zł'],
+        'RedEngine – zaawansowany manager rozszerzeń FiveM. Stabilny i nowoczesny.'
+    )">
+        <h2>Red Engine</h2>
+        <img src="redengine.jpg">
+    </div>
+
+    <!-- Spoofer -->
+    <div class="hack-box" onclick="openProduct(
+        'Red Engine Spoofer',
+        'redengine2.jpg',
+        ['7 dni — 40 zł','30 dni — 70 zł','Na zawsze — 180 zł'],
+        'Narzędzie diagnostyczne — naprawia pliki, wykrywa błędy.'
+    )">
+        <h2>Red Engine Spoofer</h2>
+        <img src="redengine2.jpg">
+    </div>
+
+    <!-- Phaze -->
+    <div class="hack-box" onclick="openProduct(
+        'Phaze Menu',
+        'phaze.jpg',
+        ['7 dni — 50 zł','30 dni — 90 zł','Na zawsze — 220 zł'],
+        'Phaze — stabilne narzędzie kompatybilne z RedEngine z personalizacją.'
+    )">
+        <h2>Phaze Menu</h2>
+        <img src="phaze.jpg">
+    </div>
+
 </div>
 
-<div class="product" onclick="openProduct('Red Engine Spoofer', 'redengine2.jpg', [
-'7 dni — 40 zł',
-'30 dni — 70 zł',
-'Na zawsze — 180 zł'
-], 'Szybkie narzędzie diagnostyczne — automatycznie naprawia pliki i wykrywa błędy.')">
-    <h2>Red Engine Spoofer</h2>
-    <img src="redengine2.jpg">
-</div>
-
-<div class="product" onclick="openProduct('Phaze Menu', 'phaze.jpg', [
-'7 dni — 50 zł',
-'30 dni — 90 zł',
-'Na zawsze — 220 zł'
-], 'Phaze — stabilne i zaawansowane narzędzie kompatybilne z RedEngine.')">
-    <h2>Phaze Menu</h2>
-    <img src="phaze.jpg">
-</div>
-
-<div class="product" onclick="openProduct('FiveM Ready', 'fivem.jpg', [
-'2.50 zł (min. 2 sztuki)'
-], 'Zestawy kont FiveM. Kup minimum 2 sztuki. Pełne informacje na Discord.')">
-    <h2>FiveM Ready</h2>
-    <img src="fivem.jpg">
-</div>
 
 
 <!-- POPUP PRODUKTU -->
 <div id="popup">
-    <div class="popup-box">
+    <div class="popup-inner">
+
         <h2 id="pTitle"></h2>
-        <img id="pImg" style="width:180px; border-radius:10px;">
+        <img id="pImg" style="width:180px; border-radius:10px; margin:10px;">
+
         <p id="pDesc"></p>
 
-        <select id="pPrice" style="padding:10px; margin-top:10px; border-radius:8px;"></select>
+        <select id="pPrice" style="padding:10px; width:80%; border-radius:8px;"></select>
 
-        <a class="btn" onclick="addToCart()">Dodaj do koszyka</a>
-        <a class="btn" style="background:red" onclick="closePopup()">Zamknij</a>
+        <div class="btn" onclick="addToCart()">ADD TO CART</div>
+        <div class="btn" style="background:#ff0033" onclick="closePopup()">CLOSE</div>
+
     </div>
 </div>
+
 
 
 <!-- KOSZYK -->
 <div id="cart">
     <h2>Koszyk</h2>
     <p id="cartItem"></p>
-    <a class="btn" href="https://discord.gg/9ZtXWfDdHV" target="_blank">DOŁĄCZ NA DISCORD</a>
+
+    <p><strong>Metoda płatności:</strong> Paysafecard (PSC)</p>
+    <p><strong>Zakupisz na naszym Discordzie</strong></p>
+
+    <a class="btn" href="https://discord.gg/9ZtXWfDdHV" target="_blank">JOIN DISCORD</a>
 </div>
+
 
 
 <script>
 
+function openTab(name){
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(name).classList.add('active');
+}
+
+/* popup */
 let selectedProduct = "";
 let selectedPrice = "";
 
-/* Otwórz popup z produktem */
 function openProduct(title, image, prices, desc) {
 
     selectedProduct = title;
@@ -194,35 +266,39 @@ function openProduct(title, image, prices, desc) {
     document.getElementById("pImg").src = image;
     document.getElementById("pDesc").innerText = desc;
 
-    let select = document.getElementById("pPrice");
-    select.innerHTML = "";
+    let s = document.getElementById("pPrice");
+    s.innerHTML = "";
 
     prices.forEach(p => {
         let opt = document.createElement("option");
         opt.value = p;
         opt.innerText = p;
-        select.appendChild(opt);
+        s.appendChild(opt);
     });
 
     document.getElementById("popup").style.display = "flex";
 }
 
-/* Zamknij popup */
-function closePopup() {
+function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
 
-/* Dodaj do koszyka */
+/* koszyk */
 function addToCart() {
+
     selectedPrice = document.getElementById("pPrice").value;
+
     document.getElementById("popup").style.display = "none";
 
+    document.getElementById("cartItem").innerText =
+        selectedProduct + " — " + selectedPrice;
+
     document.getElementById("cart").style.display = "block";
-    document.getElementById("cartItem").innerText = selectedProduct + " — " + selectedPrice;
+
+    document.getElementById("cart").scrollIntoView({ behavior: 'smooth' });
 }
 
 </script>
-
 
 </body>
 </html>
