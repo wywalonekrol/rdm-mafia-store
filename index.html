@@ -70,6 +70,33 @@ nav a:hover {
     border-radius: 8px;
 }
 
+.btn {
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background: #00ff66;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #00cc55;
+    animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(1px,1px); }
+    25% { transform: translate(-2px,1px); }
+    50% { transform: translate(2px,-1px); }
+    75% { transform: translate(-1px,-2px); }
+    100% { transform: translate(1px,2px); }
+}
+
 /* popup okna */
 #popup {
     position: fixed;
@@ -92,35 +119,6 @@ nav a:hover {
     color: #00ff66;
     border: 2px solid #00ff66;
     text-align: center;
-}
-
-/* buttony */
-.btn {
-    display: block;
-    width: 80%;
-    margin: 15px auto;
-    padding: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-    background: #00ff66;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn:hover {
-    background: #00cc55;
-    animation: glitch 0.3s infinite;
-}
-
-/* glitch animacja */
-@keyframes glitch {
-    0% { transform: translate(1px,1px); }
-    25% { transform: translate(-2px,1px); }
-    50% { transform: translate(2px,-1px); }
-    75% { transform: translate(-1px,-2px); }
-    100% { transform: translate(1px,2px); }
 }
 
 /* koszyk */
@@ -160,12 +158,26 @@ nav a:hover {
     <div class="hack-box">
         <h2>Zwrot pieniędzy w 24h</h2>
     </div>
+
+    <!-- przycisk kup teraz -->
+    <div class="btn" onclick="openTab('fivem')">KUP TERAZ</div>
 </div>
 
 <!-- FIVEM PRODUKTY -->
 <div id="fivem" class="section">
 
     <h1>Produkty FiveM</h1>
+
+    <!-- FiveM Ready -->
+    <div class="hack-box" onclick="openProduct(
+        'FiveM Ready',
+        'fivem.jpg',
+        ['2 sztuki — 5 zł', '3 sztuki — 7.50 zł', '5 sztuk — 12.50 zł'],
+        'FiveM Ready — gotowe konto. Minimalny zakup: 2 sztuki. Po zestawy kont zapraszamy na Discorda.'
+    )">
+        <h2>FiveM Ready — 2.50 zł</h2>
+        <img src="fivem.jpg">
+    </div>
 
     <!-- Keyser -->
     <div class="hack-box" onclick="openProduct(
@@ -214,7 +226,6 @@ nav a:hover {
 </div>
 
 
-
 <!-- POPUP PRODUKTU -->
 <div id="popup">
     <div class="popup-inner">
@@ -233,7 +244,6 @@ nav a:hover {
 </div>
 
 
-
 <!-- KOSZYK -->
 <div id="cart">
     <h2>Koszyk</h2>
@@ -244,7 +254,6 @@ nav a:hover {
 
     <a class="btn" href="https://discord.gg/9ZtXWfDdHV" target="_blank">JOIN DISCORD</a>
 </div>
-
 
 
 <script>
